@@ -1,6 +1,5 @@
 {
-  "name": "bricks-tenant-testing",
-  "module": "index.ts",
+  "name": "bricks-load-testing",
   "type": "module",
   "private": true,
   "devDependencies": {
