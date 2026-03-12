@@ -1,7 +1,7 @@
 ---
 created-at: 12 March 2026
 updated-at: 12 March 2026
-version: 0.1.1
+version: 0.2.0
 ---
 
 # Tenant Manager Breakpoint Testing
@@ -11,10 +11,11 @@ version: 0.1.1
 | ------- | ---- | --------- | ------ |
 | 0.1.0 | 12 March 2026 | Initial Breakpoint Testing Plan | Tapaneeya Odmung |
 | 0.1.1 | 12 March 2026 | Fix Markdown Syntax | Tapaneeya Odmung |
+| 0.2.0 | 12 March 2026 | Adding recovery time check | Tapaneeya Odmung |
 
 ## BP01 - Tenant Manager Maximum Concurrent Request Limit
 Description: Finding maximum number of concurrent request of tenant manager before system breakdown.  
-Endpoint: [https://api-vcluster-dev.staging.internal.aws.brickstech.co/api/v1]  
+Endpoint: https://api-vcluster-dev.staging.internal.aws.brickstech.co/api/v1  
 Type: GET  
 Duration: 30 min  
 Steps:
@@ -29,10 +30,17 @@ Steps:
     5. Set concurrent request as 10 requests
     6. Send HTTP GET request to the Endpoint
     7. Check if requests taking longer than 1 seconds or HTTP response does not within range of 200 - 299  (inclusive)
-        7.1: If Success Rate = 100% AND Latency < 1s, increase load.
-        7.2: If Success Rate < 95% OR Latency > 1s for more than 30 seconds, mark this as the Breakpoint and begin the "Scale Down" phase.
+        7.1. If Success Rate = 100% AND Latency < 1s, increase load.
+        7.2. If Success Rate < 95% OR Latency > 1s for more than 30 seconds, mark this as the Breakpoint and begin the "Scale Down" phase.
+    8. Mark a failure timestamp
+    9. Set concurrent request as 1 requests
+    10. Send HTTP GET request to the Endpoint
+    11. Check if the request taking less than 1 seconds or HTTP respones is in range of 200 - 299 (inclusive)
+        11.1. If Success, mark a recovery timestamp and end testing.
+        11.2. If Not Success, wait 5 seconds and repeat step 10.
 
 Expected Outcome:
 
     - Maximum concurrent request before system breakdown. 
     - CPU and Memory usage of a system.
+    - Recovery time after system breakdown.
