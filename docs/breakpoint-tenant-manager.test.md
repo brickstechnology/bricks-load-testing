@@ -50,13 +50,13 @@ Expected Outcome:
 
 ## Results
 1) K6  
-![2026-03-16 K6]("../results/2026-03-16 BP01/2026-03-16 K6.png")  
+![2026-03-16 K6](../results/2026-03-16 BP01/2026-03-16 K6.png)  
 2) Tenant Manager  
-![2026-03-16 Tenant Manager]("../results/2026-03-16 BP01/2026-03-16 Tenant Manager.png")  
+![2026-03-16 Tenant Manager](../results/2026-03-16 BP01/2026-03-16 Tenant Manager.png)  
 3) KGateway  
-![2026-03-16 KGateway]("../results/2026-03-16 BP01/2026-03-16 KGateway.png")
+![2026-03-16 KGateway](../results/2026-03-16 BP01/2026-03-16 KGateway.png)
 4) RDS  
-![2026-03-16 RDS]("../results/2026-03-16 BP01/2026-03-16 RDS.png")  
+![2026-03-16 RDS](../results/2026-03-16 BP01/2026-03-16 RDS.png)  
 
 ## Analysis
 K6 results show that when virtual users hit 407 vus/s the request per seconds (RPS) went flat line which notate that
