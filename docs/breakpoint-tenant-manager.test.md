@@ -1,7 +1,7 @@
 ---
 created-at: 12 March 2026
-updated-at: 12 March 2026
-version: 0.5.0
+updated-at: 19 March 2026
+version: 0.5.2
 ---
 
 # Tenant Manager Breakpoint Testing
