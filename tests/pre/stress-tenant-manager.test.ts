@@ -43,7 +43,7 @@ export default function() {
 
   const res = http.get(BASE_URL, {
     headers: {
-      "Authorization": `Bearer ${__ENV.TOKEN}`,
+      "Authorization": `Bearer ${__ENV.TOKEN?.trim()}`,
       "X-Tenant-ID": __ENV.TENANT_ID || "",
       "X-Tenant-Provider": __ENV.TENANT_PROVIDER || "",
     }
